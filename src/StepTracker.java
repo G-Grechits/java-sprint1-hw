@@ -7,7 +7,7 @@ public class StepTracker {
     Converter converter = new Converter();
 
     StepTracker() {
-        stepsTarget = 10000;
+        stepsTarget = 10_000;
         yearOfSteps = new HashMap<>();
         months = new String[] {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
                                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
@@ -16,7 +16,7 @@ public class StepTracker {
         }
     }
 
-    void stepsKeeper(String month, int day, int steps) { //метод по сохранению шагов
+    void saveSteps(String month, int day, int steps) { //метод по сохранению шагов
         if (yearOfSteps.containsKey(month)) {
             int[] stepsInDay = yearOfSteps.get(month);
             if (day >= 1 && day <=30) {
@@ -35,7 +35,7 @@ public class StepTracker {
         }
     }
 
-    void stepsStatistics(String month) { //метод по выводу статистики за указанный месяц
+    void getStepsStatistics(String month) { //метод по выводу статистики за указанный месяц
         if (yearOfSteps.containsKey(month)) {
             int[] stepsInDay = yearOfSteps.get(month);
             String daysStatistics = "";
