@@ -8,9 +8,9 @@ public class Main {
 
         while (true) {
             printMenu();
-            int command = scanner.nextInt(); //считываем команду
-
-            if (command == 1) {
+            String command = scanner.next(); //считываем команду (выбрал next(), а не nextLine(), чтобы не выводил
+            // "Неправильный ввод команды!" после того, как уже принял и выполнил какую-либо команду из доступных)
+            if (command.equals("1")) { // прошу прощения, но switch-case я задействовать не буду, т.к. мы его пока не изучали)
                 System.out.println("Введи название месяца с прописной буквы");
                 String month = scanner.next();
                 System.out.println("Введи номер дня от 1 до 30");
@@ -18,15 +18,15 @@ public class Main {
                 System.out.println("Введи количество пройденных шагов");
                 int steps = scanner.nextInt();
                 stepTracker.stepsKeeper(month, day, steps); //вызываем метод по сохранению шагов
-            } else if (command == 2) {
+            } else if (command.equals("2")) {
                 System.out.println("Введи название месяца, статистика за который тебя интересует, с прописной буквы");
                 String month = scanner.next();
                 stepTracker.stepsStatistics(month); //вызываем метод по выводу статистики за указанный месяц
-            } else if (command == 3) {
+            } else if (command.equals("3")) {
                 System.out.println("Введи новую цель по количеству шагов за день");
                 int stepsTarget = scanner.nextInt();
                 stepTracker.editStepsTarget(stepsTarget); //вызываем метод по изменению целевого количества шагов
-            } else if (command == 0) {
+            } else if (command.equals("0")) {
                 System.out.println("Программа завершена. Всего доброго!");
                 return; //останавливаем цикл и программу
             } else {
